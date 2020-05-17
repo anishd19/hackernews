@@ -10,7 +10,10 @@ export default function CountContainer(props) {
         <div data-testid="upvote-count" className="upvote-count">
           {`${isUpvoted ? upvoteCount + 1 : upvoteCount}`}
         </div>
-        <ArrowUpButton className={isUpvoted ? "active" : "inactive"}>
+        <ArrowUpButton
+          className={isUpvoted ? "active" : "inactive"}
+          aria-label="upvote"
+        >
           <span
             data-testid="arrow-up"
             onClick={upvoteToggler}

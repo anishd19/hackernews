@@ -8,9 +8,11 @@ export default function Header() {
     <StyledHeader>
       <div className="logo">Y</div>
       <div className="menu">
-        <MenuButton className="active">{labels.TOP}</MenuButton>
+        <MenuButton className="active" aria-label="top">
+          {labels.TOP}
+        </MenuButton>
         <span className="divider">|</span>
-        <MenuButton>{labels.NEW}</MenuButton>
+        <MenuButton aria-label="new">{labels.NEW}</MenuButton>
       </div>
     </StyledHeader>
   );
