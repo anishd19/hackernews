@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import media from "styled-media-query";
+
+import { Button } from "../../../common/styles";
 
 export const StyledInfoContainer = styled.div`
   display: flex;
@@ -27,9 +30,13 @@ export const StyledInfoContainer = styled.div`
     text-decoration: none;
   }
 
-  button {
-    background: transparent;
-    border: transparent;
-    cursor: pointer;
-  }
+  ${media.lessThan("medium")`
+    flex-direction: column;
+
+    .domain, .info {
+      margin-left: 0;
+    }
+  `}
 `;
+
+export const HideButton = styled(Button)``;

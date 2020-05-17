@@ -1,4 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
+import media from "styled-media-query";
+
+import { Button } from "../common/styles";
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -28,6 +31,11 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   max-width: 90vw;
   margin: 0 auto;
+
+  ${media.lessThan("medium")`
+    margin: 0;
+    max-width: 100%;
+  `}
 `;
 
 export const Feed = styled.div`
@@ -36,10 +44,7 @@ export const Feed = styled.div`
   }
 `;
 
-export const MoreBtn = styled.button`
-  background: transparent;
-  border: transparent;
-  cursor: pointer;
+export const MoreBtn = styled(Button)`
   color: ${({ theme }) => theme.colors.first};
   font-size: 1.8rem;
   font-weight: 500;

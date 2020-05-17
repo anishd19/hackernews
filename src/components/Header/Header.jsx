@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StyledHeader } from "./Header.style";
+import { StyledHeader, MenuButton } from "./Header.style";
 import { labels } from "../../constants";
 
 export default function Header() {
@@ -8,9 +8,9 @@ export default function Header() {
     <StyledHeader>
       <div className="logo">Y</div>
       <div className="menu">
-        <button className="active">{labels.TOP}</button>
+        <MenuButton className="active">{labels.TOP}</MenuButton>
         <span className="divider">|</span>
-        <button>{labels.NEW}</button>
+        <MenuButton>{labels.NEW}</MenuButton>
       </div>
     </StyledHeader>
   );

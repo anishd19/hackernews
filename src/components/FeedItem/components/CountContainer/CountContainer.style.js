@@ -1,11 +1,10 @@
 import styled from "styled-components";
+import media from "styled-media-query";
+
+import { Button } from "../../../common/styles";
 
 export const StyledCountContainer = styled.div`
   display: flex;
-
-  .count-container {
-    display: flex;
-  }
 
   .comment-count {
     min-width: 10rem;
@@ -19,25 +18,31 @@ export const StyledCountContainer = styled.div`
     .upvote-count {
       margin-right: 5px;
     }
+  }
 
-    button {
-      background: transparent;
-      border: transparent;
-      cursor: pointer;
-    }
+  ${media.lessThan("medium")`
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-    .arrow-up {
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid ${({ theme }) => theme.colors.greyLightOne};
-      position: relative;
-      top: -13px;
-    }
+      .upvote-counter {
+        padding-right: 0;
+      }
+    `}
+`;
 
-    .active .arrow-up {
-      border-bottom: 10px solid ${({ theme }) => theme.colors.first};
-    }
+export const ArrowUpButton = styled(Button)`
+  .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid ${({ theme }) => theme.colors.greyLightOne};
+    position: relative;
+    top: -13px;
+  }
+
+  &.active .arrow-up {
+    border-bottom: 10px solid ${({ theme }) => theme.colors.first};
   }
 `;

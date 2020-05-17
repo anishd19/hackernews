@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Button } from "../common/styles";
+
 export const StyledHeader = styled.div`
   display: flex;
   background: ${({ theme }) => theme.colors.first};
@@ -12,23 +14,19 @@ export const StyledHeader = styled.div`
     margin-right: 10px;
   }
 
-  button {
-    background: transparent;
-    border: transparent;
-    cursor: pointer;
-
-    &.active {
-      color: ${({ theme }) => theme.colors.white};
-    }
-  }
-
   .menu {
     display: flex;
     align-items: center;
 
-    button,
     span {
       margin-left: 10px;
     }
+  }
+`;
+
+export const MenuButton = styled(Button)`
+  margin-left: 10px;
+  &.active {
+    color: ${({ theme }) => theme.colors.white};
   }
 `;

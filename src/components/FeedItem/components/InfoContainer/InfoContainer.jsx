@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StyledInfoContainer } from "./InfoContainer.style";
+import { StyledInfoContainer, HideButton } from "./InfoContainer.style";
 import { extractDomain, timeAgo } from "./../../../../helpers";
 
 export default function InfoContainer(props) {
@@ -17,7 +17,7 @@ export default function InfoContainer(props) {
         <span>by</span>
         &nbsp;{author}&nbsp;
         <span>{timeAgo(new Date(createdAt))}</span>&nbsp;
-        <button onClick={hideHandler}>[ hide ]</button>
+        <HideButton onClick={hideHandler}>[ hide ]</HideButton>
       </p>
     </StyledInfoContainer>
   );
