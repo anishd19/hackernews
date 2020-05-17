@@ -7,17 +7,21 @@ export default function InfoContainer(props) {
   const { author, createdAt, title, url, hideHandler } = props;
   return (
     <StyledInfoContainer>
-      <h4 className="title">{title}</h4>
+      <h4 data-testid="title" className="title">
+        {title}
+      </h4>
       {url && (
-        <a href={url} className="domain">
+        <a data-testid="url" href={url} className="domain">
           ({extractDomain(url)})
         </a>
       )}
-      <p className="info">
+      <p className="info" data-testid="info">
         <span>by</span>
         &nbsp;{author}&nbsp;
-        <span>{timeAgo(new Date(createdAt))}</span>&nbsp;
-        <HideButton onClick={hideHandler}>[ hide ]</HideButton>
+        <span data-testid="date">{timeAgo(new Date(createdAt))}</span>&nbsp;
+        <HideButton data-testid="hide" onClick={hideHandler}>
+          [ hide ]
+        </HideButton>
       </p>
     </StyledInfoContainer>
   );

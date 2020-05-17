@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useImmer } from "use-immer";
 import axios from "axios";
 import { useLocalStorage } from "./hooks/useLocalStorage";
@@ -58,13 +58,12 @@ const useAppHook = () => {
     return !!currRecord.hidden;
   };
 
-  useEffect(() => {
-    const getFeed = async (page) => {
+  const getFeed = useCallback(
+    async (page) => {
       try {
         const { data } = await axios.get(
           `https://hn.algolia.com/api/v1/search?page=${page}`
         );
-        console.log("data", data);
         setState((draft) => {
           draft.feeds = data.hits.filter((feed) => feed.title);
         });
@@ -72,9 +71,13 @@ const useAppHook = () => {
         // TODO: sentient handle
         console.error(e);
       }
-    };
+    },
+    [setState]
+  );
+
+  useEffect(() => {
     getFeed(state.page);
-  }, [state.page, setState]);
+  }, [state.page, getFeed]);
 
   return {
     ...state,

@@ -7,11 +7,15 @@ export default function CountContainer(props) {
     <StyledCountContainer>
       <div className="comment-count">{commentCount || 0}</div>
       <div className="upvote-counter">
-        <div className="upvote-count">
+        <div data-testid="upvote-count" className="upvote-count">
           {`${isUpvoted ? upvoteCount + 1 : upvoteCount}`}
         </div>
         <ArrowUpButton className={isUpvoted ? "active" : "inactive"}>
-          <span onClick={upvoteToggler} className="arrow-up"></span>
+          <span
+            data-testid="arrow-up"
+            onClick={upvoteToggler}
+            className="arrow-up"
+          ></span>
         </ArrowUpButton>
       </div>
     </StyledCountContainer>
