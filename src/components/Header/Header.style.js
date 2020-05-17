@@ -13,8 +13,8 @@ export const StyledHeader = styled.div`
   }
 
   button {
-    background: #00000000;
-    border: #00000000;
+    background: transparent;
+    border: transparent;
     cursor: pointer;
 
     &.active {

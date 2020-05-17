@@ -1,18 +1,23 @@
 import React from "react";
 
 import { StyledInfoContainer } from "./InfoContainer.style";
+import { extractDomain, timeAgo } from "./../../../../helpers";
 
-export default function InfoContainer() {
+export default function InfoContainer(props) {
+  const { author, createdAt, title, url, hideHandler } = props;
   return (
     <StyledInfoContainer>
-      <h4 className="title">Seemingly impossible swift programs</h4>
-      <a href="#" className="domain">
-        (foobar.com)
-      </a>
+      <h4 className="title">{title}</h4>
+      {url && (
+        <a href={url} className="domain">
+          ({extractDomain(url)})
+        </a>
+      )}
       <p className="info">
-        <span>by</span>&nbsp;wool__gather&nbsp;
-        <span>5 hours ago</span>&nbsp;
-        <button>[ hide ]</button>
+        <span>by</span>
+        &nbsp;{author}&nbsp;
+        <span>{timeAgo(new Date(createdAt))}</span>&nbsp;
+        <button onClick={hideHandler}>[ hide ]</button>
       </p>
     </StyledInfoContainer>
   );

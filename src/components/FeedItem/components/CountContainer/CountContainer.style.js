@@ -21,8 +21,8 @@ export const StyledCountContainer = styled.div`
     }
 
     button {
-      background: #00000000;
-      border: #00000000;
+      background: transparent;
+      border: transparent;
       cursor: pointer;
     }
 
@@ -34,6 +34,10 @@ export const StyledCountContainer = styled.div`
       border-bottom: 10px solid ${({ theme }) => theme.colors.greyLightOne};
       position: relative;
       top: -13px;
+    }
+
+    .active .arrow-up {
+      border-bottom: 10px solid ${({ theme }) => theme.colors.first};
     }
   }
 `;

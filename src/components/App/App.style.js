@@ -35,3 +35,14 @@ export const Feed = styled.div`
     list-style: none;
   }
 `;
+
+export const MoreBtn = styled.button`
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.first};
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 10rem;
+  padding: 10px 0;
+`;
