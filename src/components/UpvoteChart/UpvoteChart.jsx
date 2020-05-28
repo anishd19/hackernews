@@ -23,6 +23,10 @@ export default function UpvoteChart(props) {
       Votes: isUpvoted(ID) ? upvoteCount + 1 : upvoteCount,
     };
   });
+
+  if (!feeds.length) {
+    return null;
+  }
   return (
     <StyledUpvoteChart>
       <ResponsiveContainer minHeight="300px" width="100%">
