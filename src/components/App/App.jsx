@@ -6,6 +6,7 @@ import { GlobalStyle, Container, Feed, MoreBtn } from "./App.style";
 import Header from "../Header";
 import FeedItem from "../FeedItem";
 import useAppHook from "./useAppHook";
+import UpvoteChart from "../UpvoteChart";
 
 function App() {
   const {
@@ -42,6 +43,9 @@ function App() {
         </Feed>
         <div>
           <MoreBtn onClick={moreClickHandler}>More</MoreBtn>
+        </div>
+        <div>
+          <UpvoteChart feeds={feeds} isUpvoted={isUpvoted} />
         </div>
       </Container>
     </ThemeProvider>
